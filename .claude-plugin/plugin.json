@@ -1,0 +1,10 @@
+{
+  "name": "hiai-meeting-guide",
+  "version": "1.0.0",
+  "description": "Hi AI Meeting usage guidance and multi-AI decision workflows. Connect MCP separately.",
+  "author": {
+    "name": "Hi AI Soft",
+    "url": "https://www.hiaisoft.com"
+  },
+  "homepage": "https://hiai-meeting.com/developers"
+}
