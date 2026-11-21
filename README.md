@@ -2,6 +2,14 @@
 
 Use [Hi AI Meeting](https://hiai-meeting.com) from an AI assistant: prepare a useful meeting, connect its MCP tools, retrieve asynchronous results, and preserve the reasoning and disagreements.
 
+Version 1.1.0 adds walkthroughs checked against the live site on 2026-11-21:
+
+- [Signup/login, credits, API-key issuance, and non-meeting connection checks](skills/hiai-meeting/references/getting-ready.md).
+- [Create a web meeting, check visibility and cost, read results, and download available files](skills/hiai-meeting/references/website.md).
+- [Client settings and MCP request/result examples](skills/hiai-meeting/references/calling.md).
+
+Web-only users do not need MCP or an API key. The assistant should start at the user's current step and keep signup, payment, authenticated discovery, and actual meeting completion distinct.
+
 This repository distributes usage instructions only. It contains no backend source code, user meeting records, API keys, or automatic paid-meeting execution. Installing it does not make a purchase or connect an account.
 
 ## Install the skill
