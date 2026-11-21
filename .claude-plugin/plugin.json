@@ -1,7 +1,7 @@
 {
   "name": "hiai-meeting-guide",
-  "version": "1.1.0",
-  "description": "Hi AI Meeting usage guidance and multi-AI decision workflows. Connect MCP separately.",
+  "version": "1.1.1",
+  "description": "Hi AI Meeting discussions, decisions, reviews and co-creation: website onboarding, file-backed task judgments and explicit prior-approval context. Connect MCP separately.",
   "author": {
     "name": "Hi AI Soft",
     "url": "https://www.hiaisoft.com"
