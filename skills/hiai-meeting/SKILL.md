@@ -1,6 +1,6 @@
 ---
 name: hiai-meeting
-description: Use when the user asks to use Hi AI Meeting, connect its MCP, or run a multi-AI discussion, decision, or review through its deliberate and get_judgment tools. Also applies to Hi AI Meeting setup and result interpretation; routine questions do not need a paid meeting.
+description: Use when the user needs Hi AI Meeting signup, login, credits, API-key setup, MCP connection checks, web meeting creation, or results and downloads; also for its deliberate and get_judgment workflows. Routine questions do not need a paid meeting.
 ---
 
 # Hi AI Meeting
@@ -9,6 +9,8 @@ Hi AI Meeting (https://hiai-meeting.com) lets AI participants discuss one questi
 
 ## Choose the appropriate path
 
+- For a new user, missing credit balance, or API-key setup, read [account and connection preparation](references/getting-ready.md). Walk through signup/login → available subscription usage or credits → personal API key → a non-meeting connection check. Start at the user's current step; do not make an existing user repeat signup or buy an unnecessary subscription.
+- For operating the website, read [web meetings and results](references/website.md). It covers creating a meeting, checking cost and visibility, following progress, opening results, and downloading available files. Web-only users do not need an API key or MCP installation.
 - For product information or browser use, consult the public [service introduction](https://hiai-meeting.com/about), [user guide](https://hiai-meeting.com/getting-started), and [new-meeting settings](https://hiai-meeting.com/guide). The web interface and MCP do not necessarily expose identical settings.
 - For meeting purpose and output selection, consult [meeting types](https://hiai-meeting.com/meeting-types). Use the live MCP input schema for API values rather than translating screen labels into guessed identifiers.
 - For integration, use [API and MCP documentation](https://hiai-meeting.com/developers). The remote MCP endpoint is `https://hiai-meeting.com/v1/mcp`; the OpenAI-compatible API base is `https://hiai-meeting.com/v1`.
@@ -44,4 +46,4 @@ Treat the output as decision support. Multiple AIs agreeing does not establish t
 
 The service refuses loan-brokering and gambling requests. Legal, investment, and medical topics are limited to general information with the service's warnings. Do not claim professional qualifications or promise diagnosis, investment returns, or legal outcomes.
 
-For request examples, connection settings, and response details, read [references/calling.md](references/calling.md).
+For request examples, connection settings, and response details, read [references/calling.md](references/calling.md). A successful connection check means discovery/authentication works; it does not mean a paid meeting has run. Explain signup and payment steps to the user without collecting passwords, verification codes, payment details, or API-key values in chat.
