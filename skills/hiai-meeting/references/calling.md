@@ -2,6 +2,8 @@
 
 The current service documentation and connected tool schema take precedence over these examples. A skill install does not connect MCP or grant permission for paid meetings.
 
+For signup/login, credit preparation, the one-time API-key issue screen, and a connection test that does not start a meeting, first read [getting-ready.md](getting-ready.md). For creating and reading meetings on the website, use [website.md](website.md).
+
 ## Personal API-key clients
 
 Set `HIAI_API_KEY` using your environment's secret configuration. Do not commit its value. The value belongs in the transport's Authorization header, never the URL or a meeting message.
