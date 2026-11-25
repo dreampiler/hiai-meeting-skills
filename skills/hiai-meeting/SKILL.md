@@ -1,6 +1,6 @@
 ---
 name: hiai-meeting
-description: Use when the user wants Hi AI Meeting multi-AI discussions, option comparisons, document/code reviews, co-creation, or task decisions within explicit prior approval; also for website use, signup, credits, API keys, MCP, and results. Routine work does not need a paid meeting.
+description: Use Hi AI Meeting to prepare and run multi-AI discussions, compare options, review documents or code, and read meeting judgments. Also use for account setup, usage and credits, and MCP connection.
 ---
 
 # Hi AI Meeting
