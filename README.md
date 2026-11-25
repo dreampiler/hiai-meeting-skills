@@ -40,7 +40,7 @@ The user can adopt a bounded meeting-assisted workflow: consult a panel at a mat
 - [Prepare files and apply task review results](skills/hiai-meeting/references/decisions.md)
 - [Pass preferences and explicit prior-approval context](skills/hiai-meeting/references/authority-context.md)
 
-Version **1.1.1** keeps the 1.1.0 onboarding guides and adds the capability map, file-backed decisions, and explicit prior-approval context. Site/API facts were checked on 2026-11-21:
+Version **1.1.2** adds OAuth connection and revocation guidance alongside the existing API-key instructions:
 
 - [Signup/login, credits, API-key issuance, and non-meeting connection checks](skills/hiai-meeting/references/getting-ready.md).
 - [Create a web meeting, check visibility and cost, read results, and download available files](skills/hiai-meeting/references/website.md).
@@ -72,9 +72,9 @@ The public repository's `gemini-cli-extension` topic enables discovery by the Ge
 
 ## Connect the tools
 
-The remote MCP endpoint is `https://hiai-meeting.com/v1/mcp`. It exposes `deliberate` and `get_judgment`. Issue your own personal API key in the site's Settings → API keys and configure it through your client's secret mechanism. Do not send your key in a prompt or commit it to Git.
+Use `https://hiai-meeting.com/v1/mcp` for both connection methods. With a supported OAuth client, connect from the client and review the permissions in Hi AI Meeting. Revoke access in [MCP connection management](https://hiai-meeting.com/api/mcp/oauth/connections).
 
-See [connection examples](skills/hiai-meeting/references/calling.md) for Codex and Gemini CLI. Consumer web apps and official directories may require OAuth; CLI API-key support is not evidence of OAuth availability.
+For clients that support an Authorization header, issue a personal key in Settings → API keys and configure it through the client's protected credential settings. The OpenAI-compatible API also uses a personal key. See [OAuth and API-key connection examples](skills/hiai-meeting/references/calling.md).
 
 ## Example requests
 

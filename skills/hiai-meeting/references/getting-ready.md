@@ -1,4 +1,4 @@
-# Signup, credits, API keys, and connection readiness
+# Signup, credits, and MCP connection readiness
 
 Verified against the live Hi AI Meeting signup dialog, Settings → API keys, Store, and public developer/pricing guides on 2026-11-21. Match the user's displayed language and current screen. Prices, product availability, and free-meeting switches can change; read the current site instead of quoting a fixed price from this skill.
 
@@ -8,7 +8,8 @@ Verified against the live Hi AI Meeting signup dialog, Settings → API keys, St
 |---|---|
 | Read public meetings | No signup, credits, or API key required |
 | Create a meeting on the website | Sign in; check subscription usage/credits and the meeting estimate |
-| Use meetings through MCP or the API | Sign in; prepare usage/credits; issue a personal Hi AI Meeting API key; connect a compatible client |
+| Use MCP | Sign in and connect with supported OAuth or a personal API key. Check usage/credits before starting a meeting. |
+| Use the OpenAI-compatible API | Sign in, issue a personal API key, and check usage/credits before starting a meeting. |
 | Retrieve an existing result | Use the same account and existing meeting/judgment ID; do not start another meeting |
 
 Ask only about the first missing step. A Hi AI Meeting account and its credits are separate from a ChatGPT, Claude, Gemini, or coding-agent subscription. The personal key here is a **Hi AI Meeting key**, not an OpenAI/Anthropic/Google provider key.
@@ -56,12 +57,12 @@ The panel includes **도구별 설정** with client-specific examples and **이 
 ## 5. Connect and check without starting a paid meeting
 
 1. Install this skill if needed, then configure an **independent MCP connection**. Skill installation alone creates no authenticated connection. Use [calling.md](calling.md) for client settings.
-2. Set the remote **Streamable HTTP** MCP URL to `https://hiai-meeting.com/v1/mcp`. Configure `Authorization: Bearer <personal Hi AI Meeting key>` through the client's supported credential mechanism. `https://hiai-meeting.com/v1` is the API base, not the MCP endpoint.
+2. Set the remote **Streamable HTTP** MCP URL to `https://hiai-meeting.com/v1/mcp`. For OAuth, let the client open Hi AI Meeting and have the user review and allow the requested access. For a key-based client, configure `Authorization: Bearer <personal Hi AI Meeting key>` through its protected credential mechanism. The OpenAI-compatible API uses the separate base URL `https://hiai-meeting.com/v1` and a personal key.
 3. Reload/reconnect using the client's MCP manager when required. Have the manager initialize the server and list its tools. Check that **deliberate** and **get_judgment** are advertised, including any host-added prefix. This tests connectivity and tool discovery; do **not** call deliberate as a connection test.
 4. An optional authenticated `GET /v1/models` checks the API-side credentials and available preset list without creating a meeting, but is not a substitute for verifying MCP tool discovery. Keep Authorization out of displayed commands, shell history, and diagnostic logs.
 5. Only after an actual meeting is requested and its cost/material are authorized should deliberate be called. Preserve its ID and follow the normal retrieval flow in the main skill.
 
-Do not promise API-key MCP support in a consumer ChatGPT, Claude, or Gemini web app. Use the host's supported authentication flow, including OAuth when available. CLI API-key configuration and official consumer-app connector support are separate capabilities.
+OAuth access can be revoked in [MCP connection management](https://hiai-meeting.com/api/mcp/oauth/connections). For each client, check that its connection settings support the chosen method. Public directory approval and custom connections have separate setup steps.
 
 ## Common obstacles
 
@@ -69,7 +70,8 @@ Do not promise API-key MCP support in a consumer ChatGPT, Claude, or Gemini web 
 |---|---|
 | Sign-in is shown again | Check account, session, and the original login method |
 | API-key section is unavailable | Distinguish sign-in/permission failure from a feature temporarily unavailable; do not invent a key |
-| HTTP 401 | Check full key, exact Bearer header, endpoint, and whether the key was revoked; never request the key in chat |
+| HTTP 401 | For OAuth, reconnect and check whether access expired or was revoked. For API keys, check the Bearer configuration and key status locally. |
+| HTTP 403 with insufficient scope | Check the required OAuth scope. Meeting creation requires separate user consent for `mcp:meeting:create`. |
 | Missing MCP tools | Check URL/transport, connection enabled state, reconnection, and host support; skill installation is insufficient |
 | Balance/entitlement error | Check Store usage, credits, requested features, and the returned error; successful authentication does not imply permission or balance for every preset |
 | Failed/uncertain paid request | Keep the original judgment ID or idempotency key; retrieve its state instead of blindly creating another meeting |

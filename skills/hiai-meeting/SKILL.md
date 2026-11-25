@@ -19,7 +19,7 @@ For agent work, the MCP can act as a second-opinion or delegated technical-revie
 
 - For a contested task decision or a requested approval/review checkpoint, read [file-backed decisions and review](references/decisions.md). Prepare a local brief from the relevant files, transmit the supported material, retrieve the judgment, and apply it only within the task's existing authority.
 - For a user-provided preference profile or prior approval, also read [authority and preference context](references/authority-context.md). Preferences guide recommendations; explicit prior approval can authorize bounded execution after the meeting checks its conditions. A meeting cannot create authority the user or host has not granted.
-- For a new user, missing credit balance, or API-key setup, read [account and connection preparation](references/getting-ready.md). Walk through signup/login → available subscription usage or credits → personal API key → a non-meeting connection check. Start at the user's current step; do not make an existing user repeat signup or buy an unnecessary subscription.
+- For signup, credits or MCP setup, read [account and connection preparation](references/getting-ready.md). Start at the user's current step. Choose OAuth or a personal API key according to the client, check tool discovery, and check credits before starting a meeting.
 - For operating the website, read [web meetings and results](references/website.md). It covers creating a meeting, checking cost and visibility, following progress, opening results, and downloading available files. Web-only users do not need an API key or MCP installation.
 - For product information or browser use, consult the public [service introduction](https://hiai-meeting.com/about), [user guide](https://hiai-meeting.com/getting-started), and [new-meeting settings](https://hiai-meeting.com/guide). The web interface and MCP do not necessarily expose identical settings.
 - For meeting purpose and output selection, consult [meeting types](https://hiai-meeting.com/meeting-types). Use the live MCP input schema for API values rather than translating screen labels into guessed identifiers.
@@ -28,7 +28,7 @@ For agent work, the MCP can act as a second-opinion or delegated technical-revie
 
 ## Connect before calling
 
-This skill supplies instructions, not a live connection or authentication. Use the host's MCP connection settings and the user's own account. Personal API keys are issued in the site's Settings → API keys and sent as `Authorization: Bearer <key>` by the connection configuration. Keep keys out of prompts, committed files, logs, and URLs. Do not ask the user to paste a key into the conversation.
+Connect `https://hiai-meeting.com/v1/mcp` through the host's MCP connection settings. When the host offers supported OAuth, the user signs in to Hi AI Meeting and grants the requested scopes. Clients that support a Bearer header can use a personal key from Settings → API keys. See [both connection methods](references/calling.md). Keep credentials out of prompts, committed files, logs, and URLs.
 
 Check that the connected server exposes `deliberate` and `get_judgment`. A host may prefix their names. If the tools are unavailable, explain the missing connection and provide setup guidance; do not claim a meeting ran. Do not promise that a consumer web app accepts API-key MCP connections; check the host's supported authentication flow. CLI configuration is in [the calling reference](references/calling.md).
 
